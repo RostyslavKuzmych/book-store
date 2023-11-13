@@ -1,10 +1,8 @@
-package book_store;
+package application;
 
-import book_store.model.Book;
-import book_store.service.BookService;
-
+import application.model.Book;
+import application.service.BookService;
 import java.math.BigDecimal;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

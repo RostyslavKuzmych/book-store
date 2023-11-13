@@ -1,7 +1,6 @@
-package book_store.repository;
+package application.repository;
 
-import book_store.model.Book;
-
+import application.model.Book;
 import java.util.List;
 
 public interface BookRepository {

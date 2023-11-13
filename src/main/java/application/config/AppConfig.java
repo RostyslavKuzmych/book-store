@@ -1,9 +1,9 @@
-package book_store.config;
+package application.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = "book_store")
+@ComponentScan(basePackages = "application")
 public class AppConfig {
 }

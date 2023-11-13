@@ -1,9 +1,7 @@
-package book_store.repository;
+package application.repository;
 
-import book_store.model.Book;
-
+import application.model.Book;
 import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

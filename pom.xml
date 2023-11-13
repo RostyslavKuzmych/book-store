@@ -76,6 +76,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <mainClass>application.MyBookStoreApplication</mainClass>
                     <image>
                         <builder>paketobuildpacks/builder-jammy-base:latest</builder>
                     </image>
