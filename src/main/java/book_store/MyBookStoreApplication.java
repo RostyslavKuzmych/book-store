@@ -1,8 +1,10 @@
-package com.example.my_book_store;
+package book_store;
 
-import com.example.my_book_store.model.Book;
-import com.example.my_book_store.service.BookService;
+import book_store.model.Book;
+import book_store.service.BookService;
+
 import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
