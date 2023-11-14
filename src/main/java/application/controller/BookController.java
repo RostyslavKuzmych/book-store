@@ -2,6 +2,8 @@ package application.controller;
 
 import application.dto.BookDto;
 import application.dto.CreateBookRequestDto;
+import application.mapper.BookMapper;
+import application.model.Book;
 import application.service.BookService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -16,20 +18,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
-    private BookService bookService;
+    private final BookService bookService;
+    private final BookMapper bookMapper;
 
     @GetMapping
     public List<BookDto> getAll() {
-        return bookService.findAll();
+        return bookService.findAll()
+                .stream()
+                .map(b -> bookMapper.toDto(b))
+                .toList();
     }
 
     @GetMapping("/{id}")
     public BookDto getBookById(@PathVariable Long id) {
-        return bookService.getBookById(id);
+        Book book = bookService.getBookById(id);
+        return bookMapper.toDto(book);
     }
 
     @PostMapping
     public BookDto createBook(@RequestBody CreateBookRequestDto requestDto) {
-        return bookService.createBook(requestDto);
+        Book book = bookService.createBook(requestDto);
+        return bookMapper.toDto(book);
     }
 }

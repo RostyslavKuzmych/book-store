@@ -10,10 +10,10 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class BookDaoImpl implements BookRepository {
+public class BookRepositoryImpl implements BookRepository {
     private final SessionFactory sessionFactory;
 
-    public BookDaoImpl(SessionFactory sessionFactory) {
+    public BookRepositoryImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
@@ -44,7 +44,7 @@ public class BookDaoImpl implements BookRepository {
     }
 
     @Override
-    public Optional<Book> findBookById(Long id) {
+    public Optional<Book> findById(Long id) {
         try (Session session = sessionFactory.openSession()) {
             return Optional.ofNullable(session.get(Book.class, id));
         }
