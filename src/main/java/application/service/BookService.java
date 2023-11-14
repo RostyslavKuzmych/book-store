@@ -5,7 +5,7 @@ import application.model.Book;
 import java.util.List;
 
 public interface BookService {
-    Book save(CreateBookRequestDto requestDto);
+    Book save(Book book);
 
     List<Book> findAll();
 
