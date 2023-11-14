@@ -1,6 +1,5 @@
 package application.service;
 
-import application.dto.BookDto;
 import application.dto.CreateBookRequestDto;
 import application.model.Book;
 import java.util.List;
@@ -8,9 +7,9 @@ import java.util.List;
 public interface BookService {
     Book save(CreateBookRequestDto requestDto);
 
-    List<BookDto> findAll();
+    List<Book> findAll();
 
-    BookDto createBook(CreateBookRequestDto requestDto);
+    Book createBook(CreateBookRequestDto requestDto);
 
-    BookDto getBookById(Long id);
+    Book getBookById(Long id);
 }
