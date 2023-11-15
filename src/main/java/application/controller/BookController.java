@@ -3,7 +3,6 @@ package application.controller;
 import application.dto.BookDto;
 import application.dto.CreateBookRequestDto;
 import application.mapper.BookMapper;
-import application.model.Book;
 import application.service.BookService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
