@@ -31,13 +31,11 @@ public class BookController {
 
     @GetMapping("/{id}")
     public BookDto getBookById(@PathVariable Long id) {
-        Book book = bookService.getBookById(id);
-        return bookMapper.toDto(book);
+        return bookMapper.toDto(bookService.getBookById(id));
     }
 
     @PostMapping
     public BookDto createBook(@RequestBody CreateBookRequestDto requestDto) {
-        Book book = bookService.createBook(requestDto);
-        return bookMapper.toDto(book);
+        return bookMapper.toDto(bookService.createBook(requestDto));
     }
 }

@@ -23,7 +23,7 @@ public class BookRepositoryImpl implements BookRepository {
         try (Session session = sessionFactory.openSession()) {
             try {
                 transaction = session.beginTransaction();
-                session.save(book);
+                session.persist(book);
                 transaction.commit();
                 return book;
             } catch (Exception exception) {
