@@ -1,5 +1,6 @@
 package application.service;
 
+import application.dto.BookDto;
 import application.dto.CreateBookRequestDto;
 import application.exception.EntityNotFoundException;
 import application.mapper.BookMapper;
@@ -16,9 +17,8 @@ public class BookServiceImpl implements BookService {
     private final BookMapper bookMapper;
 
     @Override
-    public Book save(CreateBookRequestDto book) {
-        Book newBook = bookMapper.toModel(book);
-        return bookRepository.save(newBook);
+    public Book save(Book book) {
+        return bookRepository.save(book);
     }
 
     @Override
@@ -39,8 +39,10 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public void updateBook(Book book) {
-        bookRepository.save(book);
+    public BookDto updateBook(Long id, Book inputBook) {
+        bookRepository.updateBook(id, inputBook.getAuthor(), inputBook.getTitle(),
+                inputBook.getCoverImage(), inputBook.getDescription(), inputBook.getPrice());
+        return bookMapper.toDto(bookRepository.getBookById(id));
     }
 
     @Override

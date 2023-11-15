@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -32,13 +33,6 @@ public class BookController {
                 .toList();
     }
 
-    public void df() {
-        Book book = new Book();
-        book.setAuthor("fg");
-        System.out.println(bookService.save(book));
-    }
-
-
     @GetMapping("/{id}")
     public BookDto getBookById(@PathVariable Long id) {
         Book book = bookService.getBookById(id);
@@ -49,6 +43,12 @@ public class BookController {
     public BookDto createBook(@RequestBody CreateBookRequestDto requestDto) {
         Book book = bookService.createBook(requestDto);
         return bookMapper.toDto(book);
+    }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @PutMapping("/{id}")
+    public BookDto updateBook(@PathVariable Long id, @RequestBody CreateBookRequestDto requestDto) {
+        return bookService.updateBook(id, bookMapper.toModel(requestDto));
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

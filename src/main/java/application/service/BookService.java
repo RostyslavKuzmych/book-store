@@ -1,11 +1,12 @@
 package application.service;
 
+import application.dto.BookDto;
 import application.dto.CreateBookRequestDto;
 import application.model.Book;
 import java.util.List;
 
 public interface BookService {
-    Book save(CreateBookRequestDto requestDto);
+    Book save(Book book);
 
     List<Book> findAll();
 
@@ -13,7 +14,7 @@ public interface BookService {
 
     Book getBookById(Long id);
 
-    void updateBook(Book book);
+    BookDto updateBook(Long id, Book book);
 
     void deleteBookById(Long id);
 }
